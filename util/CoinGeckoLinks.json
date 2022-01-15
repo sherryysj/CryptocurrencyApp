@@ -1,0 +1,4 @@
+{
+    "CoingeckoPing" : "https://api.coingecko.com/api/v3/ping",
+    "CoinList" : "https://api.coingecko.com/api/v3/coins/list"
+}
