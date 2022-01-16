@@ -30,6 +30,20 @@ const Content = () => {
       fetchCoins();
     },[])
 
+    const filterCoins= () => {
+
+        const filterByName = coins.filter(item=>((item.name).toLowerCase()).includes(search.toLowerCase()));
+        const filterBySymbol = coins.filter(item=>((item.symbol).toLowerCase()).includes(search.toLowerCase()));
+        const coinsFiltered = filterByName.concat(filterBySymbol.filter((item) => filterByName.indexOf(item) < 0));
+        
+        if (!coinsFiltered) {
+            return coins;
+        } else {
+            return coinsFiltered;
+        }
+
+    }
+
     return (
         <View>
 
@@ -43,7 +57,7 @@ const Content = () => {
             {fetchError && <Text>{fetchError}</Text>}
             {!fetchError && !isLoading && 
                 <CoinList 
-                    coins = {coins.filter(item=>((item.id).toLowerCase()).includes(search.toLowerCase()))}
+                    coins = {filterCoins()}
                 /> 
             }
 

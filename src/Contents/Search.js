@@ -10,7 +10,7 @@ const Search = ({search, setSearch}) => {
     return (
         <TextInput 
             style={styles.searchBox}
-            placeholder="Search Coins"
+            placeholder="Typing name or symbol to search coins"
             value={search}
             onChangeText={text => onChangeSearch(text)}
         />
