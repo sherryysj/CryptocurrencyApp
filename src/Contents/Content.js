@@ -27,6 +27,12 @@ const Content = () => {
       }
     };
 
+    /*
+    setInterval(()=> {
+        fetchCoins();
+    }, 3000)
+    */
+
     useEffect(() => {
       fetchCoins();
     },[])
