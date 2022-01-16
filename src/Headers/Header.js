@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
         marginTop: 35,
         paddingVertical: 8,
         backgroundColor: "#fff",
-        color: "#20232a",
-        fontSize: 20,
+        color: "#3d85c6",
+        fontSize: 25,
         fontWeight: "bold"
       }
 })

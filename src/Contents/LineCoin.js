@@ -2,6 +2,11 @@ import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 
 const LineCoin = ({coin}) => {
+
+    function currencyFormat(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+     }
+
     return (
         <View style={styles.container}>
             <Image style={styles.image} source={{uri: `${coin.image}`}} />
@@ -9,7 +14,7 @@ const LineCoin = ({coin}) => {
                 <Text style={styles.name}>{coin.name}</Text>
                 <Text style={styles.symbol}>{(coin.symbol).toUpperCase()}</Text>
             </View>
-            <Text style={styles.current_price}>{coin.current_price}</Text>
+            <Text style={styles.current_price}>{currencyFormat(coin.current_price)}</Text>
         </View>
     )
 }

@@ -4,6 +4,7 @@ import { useState, useEffect} from 'react';
 import API_Links from '../../util/CoinGeckoLinks.json';
 import CoinList from './CoinList';
 import Search from './Search';
+import Sort from './Sort';
 
 const Content = () => {
 
@@ -11,6 +12,7 @@ const Content = () => {
     const [fetchError, setFetchError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [search, setSearch] = useState("");
+    const [currency, setCurrency] = useState("USD");
   
     const fetchCoins = async () => {
       try {
@@ -35,7 +37,7 @@ const Content = () => {
         const filterByName = coins.filter(item=>((item.name).toLowerCase()).includes(search.toLowerCase()));
         const filterBySymbol = coins.filter(item=>((item.symbol).toLowerCase()).includes(search.toLowerCase()));
         const coinsFiltered = filterByName.concat(filterBySymbol.filter((item) => filterByName.indexOf(item) < 0));
-        
+
         if (!coinsFiltered) {
             return coins;
         } else {
@@ -45,7 +47,7 @@ const Content = () => {
     }
 
     return (
-        <View>
+        <View style={styles.container}>
 
             <Search 
                 search = {search}
@@ -58,6 +60,7 @@ const Content = () => {
             {!fetchError && !isLoading && 
                 <CoinList 
                     coins = {filterCoins()}
+                    currency = {currency}
                 /> 
             }
 
