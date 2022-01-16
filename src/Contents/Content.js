@@ -12,7 +12,7 @@ const Content = () => {
     const fetchCoins = async () => {
       try {
         const response = await fetch(API_Links.CoingeckoPing);
-        if (!response.ok) throw Error('Did not receive expected data');
+        if (!response.ok) throw Error('Did not receive coins data from the server, please reload the App');
         const coinList = await response.json();
         setCoins(coinList);
         setFetchError(null);
