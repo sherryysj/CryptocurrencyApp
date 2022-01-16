@@ -9,6 +9,7 @@ const CoinList = ({coins, currency}) => {
     const coinsPerPage = 11;
     const biggestPage = Math.ceil(coins.length/coinsPerPage);
 
+    // reset page to 1 every time coins updated
     useEffect(() => {
         setPage(1);
     },[coins])
@@ -56,6 +57,7 @@ const CoinList = ({coins, currency}) => {
                     renderItem = {({item}) => <LineCoin coin = {item} />}
                 />
             }
+            {/* page controlling */}
             <Text style={styles.currentPage}>Page: {page} </Text>
             <View style={styles.pageControl}>
                 { page > 1 &&                 

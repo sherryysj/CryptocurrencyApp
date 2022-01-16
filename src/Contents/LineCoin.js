@@ -4,7 +4,16 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 const LineCoin = ({coin}) => {
 
     function currencyFormat(num) {
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+
+        var numString = num.toString().split(".");
+        var numAfterDot = "00"
+        if(numString[1]){
+            numAfterDot = numString[1];
+        }
+        var numBeforeDot = numString[0].replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        var numFormatted = numBeforeDot + "." + numAfterDot;
+        return numFormatted;
+        
      }
 
     return (

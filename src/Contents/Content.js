@@ -4,7 +4,6 @@ import { useState, useEffect} from 'react';
 import API_Links from '../../util/CoinGeckoLinks.json';
 import CoinList from './CoinList';
 import Search from './Search';
-import Sort from './Sort';
 
 const Content = () => {
 
