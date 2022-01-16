@@ -8,6 +8,7 @@ export default function App() {
 
   const [serverState,setServerState] = useState([]);
   const [fetchError, setFetchError] = useState(null);
+  const [currency, setCurrency] = useState("USD");
 
   const fetchServer = async () => {
     try {
@@ -28,10 +29,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Header />
+      <Header
+        currency={currency} 
+        setCurrency={setCurrency} 
+      />
 
       {/* check server, if server works, go ahead to call content, otherwise, show server error message */}
-      {serverState ? <Content /> : <Text>{fetchError}</Text>}
+      {serverState ? <Content currency={currency}/> : <Text>{fetchError}</Text>}
     </View>
   );
 }
