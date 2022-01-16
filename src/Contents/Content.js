@@ -26,7 +26,7 @@ const Content = () => {
         setIsLoading(false);
       }
     };
-  
+
     useEffect(() => {
       fetchCoins();
     },[])
@@ -60,6 +60,7 @@ const Content = () => {
                 <CoinList 
                     coins = {filterCoins()}
                     currency = {currency}
+                    search = {search}
                 /> 
             }
 

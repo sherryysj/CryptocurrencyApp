@@ -3,7 +3,7 @@ import { Button, FlatList, StyleSheet, Text, View, Pressable} from 'react-native
 import { useState, useEffect } from 'react';
 import LineCoin from './LineCoin';
 
-const CoinList = ({coins, currency}) => {
+const CoinList = ({coins, currency, search}) => {
 
     const [page, setPage] = useState(1);
     const coinsPerPage = 11;
@@ -12,7 +12,7 @@ const CoinList = ({coins, currency}) => {
     // reset page to 1 every time coins updated
     useEffect(() => {
         setPage(1);
-    },[coins])
+    },[search])
 
     const filterCoinsByPage = () => {
         const startIndex = (page - 1)*coinsPerPage;
