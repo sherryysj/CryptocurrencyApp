@@ -29,6 +29,7 @@ const Content = () => {
 
     return (
         <View>
+            {/* check coin loading and error, if all work well, go ahead to display coin list */}
             {isLoading && <Text>Loading coins...</Text>}
             {fetchError && <Text>{fetchError}</Text>}
             {!fetchError && !isLoading && <Text>{coins.gecko_says}</Text>}
