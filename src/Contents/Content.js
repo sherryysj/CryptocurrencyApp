@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TextInput } from 'react-native';
 import { useState, useEffect} from 'react';
 import API_Links from '../../util/CoinGeckoLinks.json';
 import CoinList from './CoinList';
