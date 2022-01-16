@@ -8,7 +8,7 @@ const CoinList = ({coins}) => {
         <View>
             <View style={styles.title}>
                 <Text style={styles.coinName}>Coin Name</Text>
-                <Text style={styles.currentPrice}>Current Price</Text>
+                <Text style={styles.lastPrice}>Last Price</Text>
             </View>
             {/* check whether there is coin info in the return data, show error message if not */}
             {!coins ? <Text>There is no coins information return from the server</Text> : 
@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
         marginHorizontal: 2
     },
     coinName:{
-        width: 210, 
+        width: 250, 
         fontSize: 20,
-        color: "#bcbcbc"
+        color: "#999999"
     },
-    currentPrice:{
-        width: 150, 
+    lastPrice:{
+        width: 120, 
         fontSize: 20,
-        color: "#bcbcbc"
+        color: "#999999"
     }
 })

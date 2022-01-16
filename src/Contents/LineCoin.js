@@ -5,7 +5,10 @@ const LineCoin = ({coin}) => {
     return (
         <View style={styles.container}>
             <Image style={styles.image} source={{uri: `${coin.image}`}} />
-            <Text style={styles.id}>{coin.id}</Text>
+            <View style={styles.nameAndSymbol}>
+                <Text style={styles.name}>{coin.name}</Text>
+                <Text style={styles.symbol}>{(coin.symbol).toUpperCase()}</Text>
+            </View>
             <Text style={styles.current_price}>{coin.current_price}</Text>
         </View>
     )
@@ -21,14 +24,21 @@ const styles = StyleSheet.create({
         marginVertical: 5,
         marginHorizontal: 2
     },
-    id:{
-        width: 170, 
+    nameAndSymbol:{
+        width: 210, 
+        flexDirection: "column",
+        paddingHorizontal: 10
+    },
+    name:{
         fontSize: 15,
-        borderLeftWidth:10,
         fontWeight: 'bold',
     },
+    symbol:{
+        fontSize: 15,
+        color: "#bcbcbc"
+    },
     current_price:{
-        width: 100, 
+        width: 120, 
         fontSize: 15
     },
     image:{
