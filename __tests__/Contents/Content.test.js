@@ -8,3 +8,7 @@ test('renders correctly', () => {
   const tree = renderer.create(<Content />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+// test All Coins and 24 Hours Volumn Button
+// test fetchCoins
+// test filters

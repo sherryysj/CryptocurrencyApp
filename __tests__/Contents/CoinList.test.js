@@ -9,3 +9,6 @@ test('renders correctly', () => {
   const tree = renderer.create(<CoinList coins={coins}/>).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+// test page buttons
+// test filter

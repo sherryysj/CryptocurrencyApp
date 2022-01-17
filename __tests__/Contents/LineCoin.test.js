@@ -9,3 +9,6 @@ test('renders correctly', () => {
   const tree = renderer.create(<LineCoin coin={coins[0]}/>).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+// test currency form
+// test filter
