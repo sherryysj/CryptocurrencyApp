@@ -25,8 +25,8 @@ const LineCoin = ({coin, isVolumnTab}) => {
                 <Text style={styles.symbol}>{(coin.symbol).toUpperCase()}</Text>
             </View>
             {isVolumnTab ? <Text></Text> : 
-                <View style={styles.price}>
-                    <Text>{currencyFormat(coin.current_price)}</Text>
+                <View style={styles.prices}>
+                    <Text style={styles.lastPrice}>{currencyFormat(coin.current_price)}</Text>
                     <View>
                         <Text style={styles.highPrice}>24H High: {currencyFormat(coin.high_24h)}</Text>
                         <Text style={styles.lowPrice}>24H Low: {currencyFormat(coin.low_24h)}</Text>
@@ -53,25 +53,26 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
     name:{
-        fontSize: 15,
+        fontSize: 16,
         fontWeight: 'bold',
     },
     symbol:{
         fontSize: 15,
         color: "#bcbcbc"
     },
-    price:{
+    prices:{
         flexDirection: "column",
         width: 170, 
-        fontSize: 15
+    },
+    lastPrice:{
+        fontStyle: "italic",
+        fontSize: 15,
     },
     highPrice:{ 
         color: "#f44336",
-        fontSize: 15
     },
     lowPrice:{ 
         color:'#50C976',
-        fontSize: 15
     },
     image:{
         width: 40, 
