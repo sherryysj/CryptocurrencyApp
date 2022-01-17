@@ -18,15 +18,21 @@ const LineCoin = ({coin, isVolumnTab}) => {
 
     return (
         <View style={styles.container}>
-            {!isVolumnTab &&  
-                <Image style={styles.image} source={{uri: `${coin.image}`}} />
-            }   
+
+            <Image style={styles.image} source={{uri: `${coin.image}`}} />  
             <View style={styles.nameAndSymbol}>
                 <Text style={styles.name}>{coin.name}</Text>
                 <Text style={styles.symbol}>{(coin.symbol).toUpperCase()}</Text>
             </View>
-            {isVolumnTab ? <Text style={styles.current_price}>{coin.total_volume}</Text> : <Text style={styles.current_price}>{currencyFormat(coin.current_price)}</Text>}
-            
+            {isVolumnTab ? <Text></Text> : 
+                <View style={styles.price}>
+                    <Text>{currencyFormat(coin.current_price)}</Text>
+                    <View>
+                        <Text style={styles.highPrice}>24H High: {currencyFormat(coin.high_24h)}</Text>
+                        <Text style={styles.lowPrice}>24H Low: {currencyFormat(coin.low_24h)}</Text>
+                    </View>
+                </View>
+            }
         </View>
     )
 }
@@ -42,7 +48,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 2
     },
     nameAndSymbol:{
-        width: 210, 
+        width: 160, 
         flexDirection: "column",
         paddingHorizontal: 10
     },
@@ -54,8 +60,17 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: "#bcbcbc"
     },
-    current_price:{
-        width: 120, 
+    price:{
+        flexDirection: "column",
+        width: 170, 
+        fontSize: 15
+    },
+    highPrice:{ 
+        color: "#f44336",
+        fontSize: 15
+    },
+    lowPrice:{ 
+        color:'#50C976',
         fontSize: 15
     },
     image:{

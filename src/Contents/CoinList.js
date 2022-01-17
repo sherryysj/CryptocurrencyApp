@@ -6,7 +6,7 @@ import LineCoin from './LineCoin';
 const CoinList = ({coins, search, isVolumnTab}) => {
 
     const [page, setPage] = useState(1);
-    const coinsPerPage = 11;
+    const coinsPerPage = 9;
     const biggestPage = Math.ceil(coins.length/coinsPerPage);
 
     // reset page to 1 every time coins updated
@@ -44,7 +44,7 @@ const CoinList = ({coins, search, isVolumnTab}) => {
         <View>
             <View style={styles.title}>
                 <Text style={styles.coinName}>Coin Name</Text>
-                {isVolumnTab ? <Text style={styles.volumn}>24 Hours Volumn</Text> : <Text style={styles.lastPrice}>Last Price</Text>}
+                {isVolumnTab ? <Text style={styles.volumn}>Volumn Trend</Text> : <Text style={styles.lastPrice}>Last Price</Text>}
             </View>
             {/* check whether there is coin info in the return data, show error message if not */}
             {!coins ? <Text>There is no coins information return from the server</Text> : 
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 2
     },
     coinName:{
-        width: 250, 
+        width: 200, 
         fontSize: 20,
         color: "#999999"
     },

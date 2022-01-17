@@ -85,7 +85,7 @@ const Content = ({currency}) => {
                     style={styles.button} 
                     onPress={toVolumnTab}
                 >
-                    <Text style={styles.buttonText}>24 Hours Volumn</Text>
+                    <Text style={styles.buttonText}>Volumn Trend</Text>
                 </Pressable>
 
             </View>
