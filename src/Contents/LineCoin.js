@@ -14,7 +14,15 @@ const LineCoin = ({coin, isVolumnTab}) => {
         var numFormatted = numBeforeDot + "." + numAfterDot;
         return numFormatted;
         
-     }
+    }
+
+    function priceGoUp() {
+        if (coin.price_change_percentage_24h > 0){
+            return true
+        } else {
+            return false
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -26,7 +34,13 @@ const LineCoin = ({coin, isVolumnTab}) => {
             </View>
             {isVolumnTab ? <Text></Text> : 
                 <View style={styles.prices}>
-                    <Text style={styles.lastPrice}>{currencyFormat(coin.current_price)}</Text>
+                    <View style={styles.price}>
+                        <Text style={styles.lastPrice}>{currencyFormat(coin.current_price)}  </Text>
+                        {priceGoUp() ? 
+                            <Text style={styles.priceUp}>{(coin.price_change_percentage_24h).toFixed(2)}%</Text> :
+                            <Text style={styles.priceDown}>{(coin.price_change_percentage_24h).toFixed(2)}%</Text>
+                        } 
+                    </View>
                     <View>
                         <Text style={styles.highPrice}>24H High: {currencyFormat(coin.high_24h)}</Text>
                         <Text style={styles.lowPrice}>24H Low: {currencyFormat(coin.low_24h)}</Text>
@@ -64,15 +78,26 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         width: 170, 
     },
-    lastPrice:{
-        fontStyle: "italic",
-        fontSize: 15,
+    price:{
+        flexDirection: "row",
+        backgroundColor:"#f5f0ff"
     },
-    highPrice:{ 
+    lastPrice:{
+        fontWeight: 'bold',
+    },
+    priceUp:{
+        fontStyle: "italic",
         color: "#f44336",
     },
-    lowPrice:{ 
+    priceDown:{
+        fontStyle: "italic",
         color:'#50C976',
+    },
+    highPrice:{ 
+        color: "#ff6b6b",
+    },
+    lowPrice:{ 
+        color:'#86dca1',
     },
     image:{
         width: 40, 
