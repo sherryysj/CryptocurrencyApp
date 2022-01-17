@@ -3,7 +3,7 @@ import { Button, FlatList, StyleSheet, Text, View, Pressable} from 'react-native
 import { useState, useEffect } from 'react';
 import LineCoin from './LineCoin';
 
-const CoinList = ({coins, currency, search}) => {
+const CoinList = ({coins, search, isVolumnTab}) => {
 
     const [page, setPage] = useState(1);
     const coinsPerPage = 11;
@@ -44,17 +44,13 @@ const CoinList = ({coins, currency, search}) => {
         <View>
             <View style={styles.title}>
                 <Text style={styles.coinName}>Coin Name</Text>
-                <View>
-                    <Text style={styles.lastPrice}>Last Price</Text>
-                    <Text style={styles.currency}>({currency})</Text>
-                </View>
-                
+                {isVolumnTab ? <Text style={styles.volumn}>24 Hours Volumn</Text> : <Text style={styles.lastPrice}>Last Price</Text>}
             </View>
             {/* check whether there is coin info in the return data, show error message if not */}
             {!coins ? <Text>There is no coins information return from the server</Text> : 
                 <FlatList
                     data = {filterCoinsByPage()}
-                    renderItem = {({item}) => <LineCoin coin = {item} />}
+                    renderItem = {({item}) => <LineCoin coin = {item} isVolumnTab={isVolumnTab}/>}
                 />
             }
             {/* page controlling */}
@@ -99,9 +95,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: "#999999"
     },
-    currency:{
-        width: 120, 
-        fontSize: 15,
+    volumn:{
+        width: 150, 
+        fontSize: 20,
         color: "#999999"
     },
     currentPage:{

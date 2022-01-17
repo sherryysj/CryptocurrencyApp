@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 
-const LineCoin = ({coin}) => {
+const LineCoin = ({coin, isVolumnTab}) => {
 
     function currencyFormat(num) {
 
@@ -18,12 +18,15 @@ const LineCoin = ({coin}) => {
 
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={{uri: `${coin.image}`}} />
+            {!isVolumnTab &&  
+                <Image style={styles.image} source={{uri: `${coin.image}`}} />
+            }   
             <View style={styles.nameAndSymbol}>
                 <Text style={styles.name}>{coin.name}</Text>
                 <Text style={styles.symbol}>{(coin.symbol).toUpperCase()}</Text>
             </View>
-            <Text style={styles.current_price}>{currencyFormat(coin.current_price)}</Text>
+            {isVolumnTab ? <Text style={styles.current_price}>{coin.total_volume}</Text> : <Text style={styles.current_price}>{currencyFormat(coin.current_price)}</Text>}
+            
         </View>
     )
 }
